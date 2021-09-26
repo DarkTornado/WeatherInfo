@@ -1,12 +1,16 @@
 package com.darktornado.weatherinfo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -29,7 +33,14 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String input = txt.getText().toString();
-                toast("ZoneId: " + getZoneId(input));
+                String zoneId = getZoneId(input);
+                if (zoneId == null) {
+                    toast("해당 지역을 찾을 수 없습니다.");
+                } else {
+                    Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
+                    intent.putExtra("zoneId", zoneId);
+                    startActivity(intent);
+                }
             }
         });
         layout.addView(btn);
