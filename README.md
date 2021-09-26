@@ -2,6 +2,9 @@
 
 © 2021 Dark Tornado, All rights reserved.
 
+## 개요
+* 기상청에서 날씨 정보를 뜯어옵니다.
+
 ## [날씨 정보 봇](./KakaoBot/)
 * 비공식 카카오톡 봇으로 구현
 * 사용 언어 : 자바스크립트
